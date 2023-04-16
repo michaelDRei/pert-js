@@ -27,8 +27,8 @@ function inner_value_table(keys, count) {
 
     elements = elements + `<tr> <td> ${values[0]} </td> <td> ${values[1]} </td>` +
       `<td> ${values[2]} </td> <td> ${values[3]} </td>` +
-      `<td> ${values[4]} </td> <td> <form> <button id="trash"` +
-      `onClick=delete_item('${keys[j].replaceAll(" ","")}')> X` +
+      `<td> ${values[4]} </td> <td> <form id="form-table"> <button id="trash"` +
+      `onClick=delete_item('${keys[j].replaceAll(" ","")}')> <i class="ph ph-trash"></i>` +
       `</button> </form> </td> </tr>`;
   }
 
