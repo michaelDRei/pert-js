@@ -1,281 +1,147 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-      table {
-        border-collapse: collapse;
-        border-spacing: 0;
-        width: 100%;
-        border: 1px solid #ddd;
-        font-family: Arial, Helvetica, sans-serif;
-        background-color: #ffffff;
-      }
-
-      #trash {
-        background-color: red;
-        color: #ffffff;
-        width: 4rem; 
-      }
-
-      th, td {
-        text-align: left;
-        padding: 8px;
-      }
-
-      tr:nth-child(even){background-color: #f2f2f2}
-
-      * {
-        box-sizing: border-box;
-      }
-
-      /* Add padding to containers */
-      .container {
-        padding: 16px;
-        background-color: white;
-      }
-
-      /* Full-width input fields */
-      input[type=text], input[type=number] {
-        width: 100%;
-        padding: 15px;
-        margin: 5px 0 22px 0;
-        display: inline-block;
-        border: none;
-        background: #f1f1f1;
-      }
-
-      input[type=text]:focus, input[type=number]:focus {
-        background-color: #ddd;
-        outline: none;
-      }
-
-      /* Overwrite default styles of hr */
-      hr {
-        border: 1px solid #f1f1f1;
-        margin-bottom: 25px;
-      }
-      abbr {
-        text-decoration: none;
-      }
-
-      /* Set a style for the submit button */
-      .registerbtn {
-        background-color: #04AA6D;
-        color: white;
-        padding: 16px 20px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-        opacity: 0.9;
-      }
-
-      .registerbtn:hover {
-        opacity: 1;
-      }
-
-      /* Add a blue text color to links */
-      a {
-        color: dodgerblue;
-      }
-
-      /* Set a grey background color and center the text of the "sign in" section */
-      .signin {
-        background-color: #f1f1f1;
-        text-align: center;
-      }
-
-      .custom-select {
-        position: relative;
-        font-family: Arial;
-      }
-
-      .custom-select select {
-        display: none; /*hide original SELECT element:*/
-      }
-
-      .select-selected {
-        background-color: DodgerBlue;
-      }
-
-      /*style the arrow inside the select element:*/
-      .select-selected:after {
-        position: absolute;
-        content: "";
-        top: 14px;
-        right: 10px;
-        width: 0;
-        height: 0;
-        border: 6px solid transparent;
-        border-color: #fff transparent transparent transparent;
-      }
-
-      /*point the arrow upwards when the select box is open (active):*/
-      .select-selected.select-arrow-active:after {
-        border-color: transparent transparent #fff transparent;
-        top: 7px;
-      }
-
-      /*style the items (options), including the selected item:*/
-      .select-items div,.select-selected {
-        color: #ffffff;
-        padding: 8px 16px;
-        border: 1px solid transparent;
-        border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-        cursor: pointer;
-        user-select: none;
-      }
-
-      /*style items (options):*/
-      .select-items {
-        position: absolute;
-        background-color: DodgerBlue;
-        top: 100%;
-        left: 0;
-        right: 0;
-        z-index: 99;
-      }
-
-      /*hide the items when the select box is closed:*/
-      .select-hide {
-        display: none;
-      }
-
-      .select-items div:hover, .same-as-selected {
-        background-color: rgba(0, 0, 0, 0.1);
-      }
-    </style>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="js/create.js"></script>
+    <title>Pert</title>
   </head>
   <body>
-
     <div class="container">
-      <h1>Calcule a estimativa da sua atividade</h1>
-      <h3><a href="https://www.tabnews.com.br/mikeDRei/melhore-suas-estimativas-de-projetos-e-entregas-com-a-tecnica-pert" target="_blank">Saiba mais sobre o método utilizado para calcular a estimativa da sua atividade</a></h3>
-      <form>
-      <hr>
-        <label for="description"><b>Descrição da atividade</b></label>
-        <input type="text" placeholder="Exemplo: Adicionar nova feature" name="description" id="description" minlength="5" maxlength="100"   required>
+      <header class="header">
+        <h1>Calcule a estimativa da sua atividade</h1>
 
-        <label for="time"><b><abbr title="Uma unidade de tempo é uma medida para medir o tempo gasto nas atividades">Unidade de tempo</abbr></b></label>
-        <div class="custom-select" style="width:200px;">
-          <select id = "time">
+        <a
+          href="https://www.tabnews.com.br/mikeDRei/melhore-suas-estimativas-de-projetos-e-entregas-com-a-tecnica-pert"
+          target="_blank"
+          >Saiba mais</a
+        >
+      </header>
+      <form>
+        <div class="input-group">
+          <label for="description">Descrição da atividade</label>
+          <input
+            type="text"
+            placeholder="Exemplo: Adicionar nova feature"
+            name="description"
+            id="description"
+            minlength="5"
+            maxlength="100"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="time">Unidade de tempo</label>
+          <select id="time">
             <option value="horas">Horas</option>
             <option value="dias">Dias</option>
             <option value="meses">Meses</option>
           </select>
         </div>
 
-        <hr>
-        <label for="optimistic"><b><abbr title="Este número é altamente otimista. Ou seja você só consegue completar a tarefa nessa velocidade se tudo der certo">Estimativa otimista</abbr></b></label>
-        <input type="number" placeholder="Exemplo: 1" name="optimistic" id="optimistic" min="1" required>
+        <div class="inputs-groups">
+          <div class="input-group">
+            <label
+              for="optimistic"
+              title="Este número é altamente otimista. Ou seja você só consegue completar a tarefa nessa velocidade se tudo der certo"
+              >Estimativa otimista
+              <i class="ph ph-question"></i>
+            </label>
+            <input
+              type="number"
+              placeholder="Exemplo: 1"
+              name="optimistic"
+              id="optimistic"
+              min="1"
+              required
+            />
+          </div>
 
-        <label for="nominal"><b><abbr title="Esta é a estimativa com a maior chance de sucesso">Estimativa Nominal</abbr></b></label>
-        <input type="number" placeholder="Exemplo: 3" name="nominal" min="1" id="nominal" required>
+          <div class="input-group">
+            <label
+              for="nominal"
+              title="Esta é a estimativa com a maior chance de sucesso"
+            >
+              Estimativa Nominal
+              <i class="ph ph-question"></i>
+            </label>
+            <input
+              type="number"
+              placeholder="Exemplo: 3"
+              name="nominal"
+              min="1"
+              id="nominal"
+              required
+            />
+          </div>
 
-        <label for="pessimistic"><b><abbr title="Este numero é altamente pessimista. Inclui tudo que pode dar errado ao executar essa tarefa">Estimativa Pessimista</abbr></b></label>
-        <input type="number" placeholder="Exemplo: 6" name="pessimistic" min="1" id="pessimistic" required>
+          <div class="input-group">
+            <label
+              for="pessimistic"
+              title="Este numero é altamente pessimista. Inclui tudo que pode dar errado ao executar essa tarefa"
+              >Estimativa Pessimista
+              <i class="ph ph-question"></i>
+            </label>
+            <input
+              type="number"
+              placeholder="Exemplo: 6"
+              name="pessimistic"
+              min="1"
+              id="pessimistic"
+              required
+            />
+          </div>
+        </div>
 
-        <hr>
-
-        <button type="submit" onClick="create()" class="registerbtn">Calcular Estimativa</button>
-        </form>
+        <button type="submit" onClick="create()" class="registerbtn">
+          Calcular Estimativa
+        </button>
+      </form>
     </div>
-  
-    <div class="container signin">
-    <div style="overflow-x:auto;">
-      <table id="pert_table_values">
-        <tr>
-          <th>Descrição da atividade</th>
-          <th>Estimativa</th>
-          <th>Excluir</th>
-        </tr>
-      </table>
+
+    <div class="container">
+      <div style="overflow-x: auto">
+        <table id="pert_table_values">
+          <tr>
+            <th>Descrição da atividade</th>
+            <th>Estimativa</th>
+            <th>Excluir</th>
+          </tr>
+        </table>
+      </div>
     </div>
 
-     <script src="js/pert.js"></script>
-<script>
-  var x, i, j, l, ll, selElmnt, a, b, c;
-
-  x = document.getElementsByClassName("custom-select");
-  l = x.length;
-
-  for (i = 0; i < l; i++) {
-    selElmnt = x[i].getElementsByTagName("select")[0];
-    ll = selElmnt.length;
-
-    a = document.createElement("DIV");
-    a.setAttribute("class", "select-selected");
-    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-    x[i].appendChild(a);
-
-    b = document.createElement("DIV");
-    b.setAttribute("class", "select-items select-hide");
-
-    for (j = 1; j < ll; j++) {
-      c = document.createElement("DIV");
-      c.innerHTML = selElmnt.options[j].innerHTML;
-
-      c.addEventListener("click", function(e) {
-        var y, i, k, s, h, sl, yl;
-        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-        sl = s.length;
-        h = this.parentNode.previousSibling;
-
-        for (i = 0; i < sl; i++) {
-          if (s.options[i].innerHTML == this.innerHTML) {
-            s.selectedIndex = i;
-            h.innerHTML = this.innerHTML;
-            y = this.parentNode.getElementsByClassName("same-as-selected");
-            yl = y.length;
-            for (k = 0; k < yl; k++) {
-              y[k].removeAttribute("class");
-            }
-            this.setAttribute("class", "same-as-selected");
-            break;
-          }
-        }
-        h.click();
-      });
-
-      b.appendChild(c);
-    }
-
-    x[i].appendChild(b);
-
-    a.addEventListener("click", function(e) {
-      e.stopPropagation();
-      closeAllSelect(this);
-      this.nextSibling.classList.toggle("select-hide");
-      this.classList.toggle("select-arrow-active");
-    });
-  }
-
-  function closeAllSelect(elmnt) {
-    var x, y, i, xl, yl, arrNo = [];
-    x = document.getElementsByClassName("select-items");
-    y = document.getElementsByClassName("select-selected");
-    xl = x.length;
-    yl = y.length;
-
-    for (i = 0; i < yl; i++) {
-      if (elmnt == y[i]) {
-        arrNo.push(i)
-      } else {
-        y[i].classList.remove("select-arrow-active");
-      }
-    }
-
-    for (i = 0; i < xl; i++) {
-      if (arrNo.indexOf(i)) {
-        x[i].classList.add("select-hide");
-      }
-    }
-  }
-
-  document.addEventListener("click", closeAllSelect);
-</script>
+    <script src="js/pert.js"></script>
+    <footer class="bottom-footer">
+      <div>
+        <p>Layout desenvolvido por <strong>Rodrigo Lucas</strong></p>
+      </div>
+      <main>
+        <a href="https://www.linkedin.com/in/rodrigolucas322/" target="_blank">
+          <i class="ph ph-linkedin-logo"></i>
+          Linkedin
+        </a>
+        <a target="_blank" href="https://github.com/Rodrigo322">
+          <i class="ph ph-github-logo"></i>
+          Github
+        </a>
+        <a
+          href="https://www.youtube.com/channel/UCd70qIQEo_ugf1NMuHRSu5A"
+          target="_blank"
+        >
+          <i class="ph ph-youtube-logo"></i>
+          Youtube
+        </a>
+      </main>
+    </footer>
   </body>
 </html>
-
